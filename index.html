@@ -21,14 +21,46 @@
     .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
     .btn-primary { background: #f5c842; color: #000; font-weight: 700; padding: 14px 28px; border-radius: 8px; border: none; cursor: pointer; font-size: 1rem; }
     .btn-secondary { background: transparent; color: #fff; font-weight: 600; padding: 14px 28px; border-radius: 8px; border: 1px solid #444; cursor: pointer; font-size: 1rem; }
-    .stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; padding: 50px 40px; border-top: 1px solid #222; border-bottom: 1px solid #222; }
-    .stat-item { text-align: center; }
-    .stat-value { font-size: 2rem; font-weight: 800; color: #f5c842; }
-    .stat-label { font-size: 0.8rem; color: #888; margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+    /* QUICK STATS BAR */
+    .quick-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; padding: 40px; border-top: 1px solid #222; border-bottom: 1px solid #222; background: #111; }
+    .qs-item { text-align: center; }
+    .qs-value { font-size: 2rem; font-weight: 800; color: #f5c842; }
+    .qs-label { font-size: 0.75rem; color: #888; margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+    /* METRICS SECTION */
+    .metrics-section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #f5c842; margin-bottom: 12px; }
+    .section-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; }
+    .section-sub { font-size: 0.95rem; color: #666; margin-bottom: 40px; line-height: 1.6; }
+    .metrics-updated { font-size: 0.78rem; color: #444; margin-bottom: 32px; }
+    .metrics-updated span { color: #f5c842; }
+    /* BIG METRIC CARDS */
+    .metric-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+    .metric-cards-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 40px; }
+    @media (max-width: 800px) { .metric-cards { grid-template-columns: 1fr 1fr; } .metric-cards-2 { grid-template-columns: 1fr; } }
+    @media (max-width: 500px) { .metric-cards { grid-template-columns: 1fr; } }
+    .mcard { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 18px; padding: 28px; position: relative; overflow: hidden; }
+    .mcard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: #f5c842; border-radius: 18px 18px 0 0; }
+    .mcard .mc-icon { font-size: 1.6rem; margin-bottom: 12px; }
+    .mcard .mc-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1.5px; color: #555; margin-bottom: 8px; }
+    .mcard .mc-value { font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 4px; line-height: 1.1; }
+    .mcard .mc-value.highlight { color: #f5c842; }
+    .mcard .mc-sub { font-size: 0.78rem; color: #555; }
+    .mcard .mc-trend { position: absolute; top: 20px; right: 20px; font-size: 0.75rem; background: #0f3d0f; color: #4caf50; border-radius: 99px; padding: 3px 10px; }
+    .mcard .mc-trend.neutral { background: #2a2a1a; color: #f5c842; }
+    /* HISTORY TABLE */
+    .history-box { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 18px; padding: 28px; }
+    .history-box h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .history-box .hb-sub { font-size: 0.82rem; color: #555; margin-bottom: 20px; }
+    .htable { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .htable th { text-align: left; padding: 10px 14px; color: #555; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #222; }
+    .htable td { padding: 12px 14px; border-bottom: 1px solid #1e1e1e; color: #ccc; }
+    .htable tr:last-child td { border-bottom: none; }
+    .htable tr:hover td { background: #1e1e1e; }
+    .htable .month-badge { background: #222; border-radius: 6px; padding: 3px 8px; font-size: 0.75rem; color: #f5c842; font-weight: 600; }
+    .htable .latest-row td { color: #fff; }
+    .empty-history { text-align: center; padding: 40px; color: #444; font-size: 0.9rem; }
+    /* OTHER SECTIONS */
     section { padding: 80px 40px; max-width: 1000px; margin: 0 auto; }
-    .section-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #f5c842; margin-bottom: 16px; }
-    .section-title { font-size: 2.4rem; font-weight: 800; margin-bottom: 12px; }
-    .section-sub { font-size: 1rem; color: #888; max-width: 600px; margin-bottom: 40px; line-height: 1.6; }
     .concept-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
     .concept-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 16px; padding: 28px; }
     .concept-card .icon { font-size: 2rem; margin-bottom: 16px; }
@@ -65,7 +97,7 @@
     .footer-links a { color: #888; }
     .footer-admin { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; padding: 8px 16px; font-size: 0.8rem; color: #555; text-decoration: none; }
     .footer-admin:hover { border-color: #f5c842; color: #f5c842; text-decoration: none; }
-    @media (max-width: 700px) { .alloc-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 2.2rem; } nav { padding: 16px 20px; } .hero { padding: 60px 20px 50px; } section { padding: 50px 20px; } footer { flex-direction: column; text-align: center; } }
+    @media (max-width: 700px) { .alloc-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 2.2rem; } nav { padding: 16px 20px; } .hero { padding: 60px 20px 50px; } section { padding: 50px 20px; } .metrics-section { padding: 50px 20px; } footer { flex-direction: column; text-align: center; } .quick-stats { gap: 24px; padding: 30px 20px; } }
   </style>
 </head>
 <body>
@@ -73,38 +105,101 @@
   <div class="nav-logo">$PEMPEK</div>
   <div class="nav-links">
     <a href="#concept">Concept</a>
+    <a href="#metrics">Metrics</a>
     <a href="#tokenomics">Tokenomics</a>
     <a href="#wallets">Wallets</a>
-    <a href="#founder">Founder</a>
     <a href="#" onclick="openPool();return false;">View Pool</a>
   </div>
 </nav>
 <div class="hero">
   <div class="badge">Indonesia - Real Pempek. Small Onchain Layer.</div>
   <h1>Indonesia's First <span>Food-Backed</span> Treasury Token on Solana</h1>
-  <p>A real Indonesian pempek business experimenting with transparent onchain capital flows. No staking. No APY. No promises.</p>
+  <p>A real Indonesian pempek business with transparent onchain capital flows. No staking. No APY. No promises. Just real cashflow, publicly verified.</p>
   <div class="hero-buttons">
     <button class="btn-primary" onclick="openPool()">View Pool</button>
     <button class="btn-secondary" onclick="openDex()">Dexscreener</button>
   </div>
 </div>
-<div class="stats">
-  <div class="stat-item"><div class="stat-value">100M</div><div class="stat-label">Total Supply</div></div>
-  <div class="stat-item"><div class="stat-value" id="stat-outlets">Soon</div><div class="stat-label">Active Outlets</div></div>
-  <div class="stat-item"><div class="stat-value">1 SOL</div><div class="stat-label">Initial Liquidity</div></div>
-  <div class="stat-item"><div class="stat-value" id="stat-bought">Soon</div><div class="stat-label">Total Buyback</div></div>
+<!-- QUICK STATS BAR -->
+<div class="quick-stats">
+  <div class="qs-item"><div class="qs-value">100M</div><div class="qs-label">Fixed Supply</div></div>
+  <div class="qs-item"><div class="qs-value" id="qs-outlets">-</div><div class="qs-label">Active Outlets</div></div>
+  <div class="qs-item"><div class="qs-value">1 SOL</div><div class="qs-label">Initial LP</div></div>
+  <div class="qs-item"><div class="qs-value" id="qs-buyback">-</div><div class="qs-label">Total Buyback</div></div>
+  <div class="qs-item"><div class="qs-value" id="qs-burn">-</div><div class="qs-label">Total Burned</div></div>
 </div>
+
+<!-- METRICS SECTION -->
+<div class="metrics-section" id="metrics">
+  <div class="section-label">Live Business Data</div>
+  <h2 class="section-title">Stats &amp; Metrics</h2>
+  <p class="section-sub">Real business numbers updated every month. All buyback transactions verifiable on Solana blockchain.</p>
+  <div class="metrics-updated">Last updated: <span id="last-updated">-</span></div>
+
+  <!-- ROW 1: 3 cards -->
+  <div class="metric-cards">
+    <div class="mcard">
+      <div class="mc-icon">🏪</div>
+      <div class="mc-label">Active Outlets</div>
+      <div class="mc-value highlight" id="m-outlets">-</div>
+      <div class="mc-sub">Pempek Indonesia locations</div>
+    </div>
+    <div class="mcard">
+      <div class="mc-icon">💰</div>
+      <div class="mc-label">Monthly Revenue</div>
+      <div class="mc-value" id="m-revenue">-</div>
+      <div class="mc-sub">Net revenue this month</div>
+    </div>
+    <div class="mcard">
+      <div class="mc-icon">📦</div>
+      <div class="mc-label">Monthly Profit</div>
+      <div class="mc-value" id="m-profit">-</div>
+      <div class="mc-sub">Before buyback allocation</div>
+    </div>
+  </div>
+
+  <!-- ROW 2: 2 cards -->
+  <div class="metric-cards-2">
+    <div class="mcard">
+      <div class="mc-icon">🔄</div>
+      <div class="mc-label">Cumulative Buyback</div>
+      <div class="mc-value highlight" id="m-buyback">-</div>
+      <div class="mc-sub" id="m-buyback-sub">Total $PEMPEK repurchased from market</div>
+      <div class="mc-trend neutral" id="m-buyback-trend">Ongoing</div>
+    </div>
+    <div class="mcard">
+      <div class="mc-icon">🔥</div>
+      <div class="mc-label">Total Burned</div>
+      <div class="mc-value highlight" id="m-burn">-</div>
+      <div class="mc-sub" id="m-burn-sub">Permanently removed from supply</div>
+      <div class="mc-trend neutral" id="m-burn-trend">Deflationary</div>
+    </div>
+  </div>
+
+  <!-- HISTORY TABLE -->
+  <div class="history-box">
+    <h3>📅 Monthly Update History</h3>
+    <div class="hb-sub">Transparent record of every monthly business report. Updated each month by the founder.</div>
+    <div id="history-container">
+      <div class="empty-history">No history yet. Updates will appear here each month.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONCEPT -->
 <section id="concept">
   <div class="section-label">Concept</div>
   <h2 class="section-title">Simple. Real. Transparent.</h2>
   <p class="section-sub">Not a DeFi protocol. Not a meme with empty utility. Just a real pempek business with an onchain layer.</p>
   <div class="concept-grid">
-    <div class="concept-card"><div class="icon">Store</div><h3>Real Business</h3><p>Pempek Indonesia operates real food outlets generating actual daily revenue.</p></div>
-    <div class="concept-card"><div class="icon">Cycle</div><h3>Profit to Buyback</h3><p>A portion of monthly net profit is used to buy back $PEMPEK from the market.</p></div>
-    <div class="concept-card"><div class="icon">Search</div><h3>Full Transparency</h3><p>All treasury and founder wallets are publicly disclosed. Verify on Solana.</p></div>
-    <div class="concept-card"><div class="icon">Block</div><h3>No Nonsense</h3><p>No staking. No vouchers. No DAO. No APY promises. Just business growth.</p></div>
+    <div class="concept-card"><div class="icon">🏪</div><h3>Real Business</h3><p>Pempek Indonesia operates real food outlets generating actual daily revenue. The business existed before the token.</p></div>
+    <div class="concept-card"><div class="icon">🔄</div><h3>Profit to Buyback</h3><p>A portion of monthly net profit is used to buy back $PEMPEK from the market. Simple and consistent.</p></div>
+    <div class="concept-card"><div class="icon">🔍</div><h3>Full Transparency</h3><p>All wallets are publicly disclosed. Every buyback transaction is verifiable on Solana.</p></div>
+    <div class="concept-card"><div class="icon">🚫</div><h3>No Nonsense</h3><p>No staking. No vouchers. No DAO. No APY promises. No governance theater. Just business growth.</p></div>
   </div>
 </section>
+
+<!-- TOKENOMICS -->
 <section id="tokenomics">
   <div style="text-align:center;margin-bottom:50px;">
     <div class="token-tag">$PEMPEK - Solana</div>
@@ -118,15 +213,21 @@
     <div class="alloc-card"><div class="alloc-top"><h3>Operational Reserve</h3><span class="pct">5%</span></div><div class="amount">5,000,000 $Pempek</div><div class="alloc-bar"><div class="alloc-bar-fill" style="width:12%;"></div></div><p>For deploy fees, tools, and emergency use only.</p></div>
   </div>
 </section>
+
+<!-- MECHANISM -->
 <section>
   <div class="section-label">How It Works</div>
   <h2 class="section-title">Buyback Mechanism</h2>
-  <div class="mech-box"><h3>Monthly Profit Flow</h3><div class="mech-flow"><div class="mech-step">Outlet Revenue</div><div class="mech-arrow">to</div><div class="mech-step">Net Profit</div><div class="mech-arrow">to</div><div class="mech-step">30% Buyback PEMPEK</div><div class="mech-arrow">to</div><div class="mech-step">Partial Burn</div></div></div>
+  <p class="section-sub">No complex DeFi. Just a simple loop between real revenue and onchain activity.</p>
+  <div class="mech-box"><h3>Monthly Profit Flow</h3><div class="mech-flow"><div class="mech-step">🏪 Outlet Revenue</div><div class="mech-arrow">to</div><div class="mech-step">Net Profit</div><div class="mech-arrow">to</div><div class="mech-step">30% Buyback $PEMPEK</div><div class="mech-arrow">to</div><div class="mech-step">🔥 Partial Burn</div></div></div>
   <div class="mech-box"><h3>What This Means</h3><p>As the pempek business grows, more revenue flows into buybacks. More buybacks reduce the circulating supply creating natural upward pressure. No promises, just mechanics tied to real business performance.</p></div>
 </section>
+
+<!-- WALLETS -->
 <section id="wallets">
   <div class="section-label">Transparency</div>
   <h2 class="section-title">Public Wallets</h2>
+  <p class="section-sub">All wallets are publicly disclosed. Nothing is hidden. Verify everything on Solscan.</p>
   <div class="wallet-grid">
     <div class="wallet-card"><div class="wlabel">Founder Wallet</div><h3>Founder Reserve</h3><div class="waddr" id="w-founder">Soon</div><p>Holds 50M $PEMPEK. Not for trading.</p></div>
     <div class="wallet-card"><div class="wlabel">Treasury Wallet</div><h3>Business Treasury</h3><div class="waddr" id="w-treasury">Soon</div><p>Manages buybacks and business reserve.</p></div>
@@ -134,34 +235,86 @@
     <div class="wallet-card"><div class="wlabel">Social</div><h3>Find Us</h3><div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;"><a id="link-twitter" href="#" style="color:#f5c842;">Twitter / X - Soon</a><a id="link-telegram" href="#" style="color:#f5c842;">Telegram - Soon</a><a id="link-dex" href="#" style="color:#f5c842;">Dexscreener - Soon</a></div></div>
   </div>
 </section>
+
+<!-- FOUNDER NOTE -->
 <section id="founder">
   <div class="founder-box">
     <h2>A Note from the Founder</h2>
     <p id="founder-note">This is not a pump and dump. I run a real pempek business in Indonesia. I created $PEMPEK as an experiment connecting a traditional food business to the Solana blockchain. The liquidity is small (1 SOL) because I believe in starting honest. The founder tokens are not for sale. Buybacks will happen when real profit allows it.</p>
   </div>
 </section>
+
 <footer>
   <div>2025 Pempek Indonesia - $PEMPEK on Solana</div>
   <div class="footer-links"><a id="footer-twitter" href="#">Twitter / X</a><a id="footer-telegram" href="#">Telegram</a><a id="footer-dex" href="#">Dexscreener</a><a id="footer-lp" href="#">View Pool</a></div>
   <a class="footer-admin" href="admin.html">Admin Dashboard</a>
 </footer>
+
 <script>
-var SK='pempek_admin';
-function load(){try{return JSON.parse(localStorage.getItem(SK)||'{}')}catch(e){return{}}}
-function apply(d){
-  if(d.treasury)document.getElementById('w-treasury').textContent=d.treasury;
-  if(d.founder)document.getElementById('w-founder').textContent=d.founder;
-  if(d.lp)document.getElementById('w-lp').textContent=d.lp;
-  if(d.twitter){document.getElementById('link-twitter').href=d.twitter;document.getElementById('link-twitter').textContent='Twitter / X';document.getElementById('footer-twitter').href=d.twitter;}
-  if(d.telegram){document.getElementById('link-telegram').href=d.telegram;document.getElementById('link-telegram').textContent='Telegram';document.getElementById('footer-telegram').href=d.telegram;}
-  if(d.dex){document.getElementById('link-dex').href=d.dex;document.getElementById('link-dex').textContent='Dexscreener';document.getElementById('footer-dex').href=d.dex;}
-  if(d.outlets)document.getElementById('stat-outlets').textContent=d.outlets;
-  if(d.bought)document.getElementById('stat-bought').textContent=d.bought;
-  if(d.foundernote)document.getElementById('founder-note').textContent=d.foundernote;
+var SK = 'pempek_admin';
+var HK = 'pempek_history';
+
+function load() { try { return JSON.parse(localStorage.getItem(SK) || '{}'); } catch(e) { return {}; } }
+function loadHistory() { try { return JSON.parse(localStorage.getItem(HK) || '[]'); } catch(e) { return []; } }
+
+function setText(id, val, fallback) {
+  var el = document.getElementById(id);
+  if (el) el.textContent = (val && val.length > 0) ? val : (fallback || '-');
 }
-function openPool(){var d=load();if(d.lp)window.open(d.lp,'_blank');else alert('LP link belum diset. Buka Admin Dashboard.');}
-function openDex(){var d=load();if(d.dex)window.open(d.dex,'_blank');else alert('Dexscreener link belum diset. Buka Admin Dashboard.');}
+
+function apply(d) {
+  if (d.treasury) document.getElementById('w-treasury').textContent = d.treasury;
+  if (d.founder) document.getElementById('w-founder').textContent = d.founder;
+  if (d.lp) document.getElementById('w-lp').textContent = d.lp;
+  if (d.twitter) { document.getElementById('link-twitter').href = d.twitter; document.getElementById('link-twitter').textContent = 'Twitter / X'; document.getElementById('footer-twitter').href = d.twitter; }
+  if (d.telegram) { document.getElementById('link-telegram').href = d.telegram; document.getElementById('link-telegram').textContent = 'Telegram'; document.getElementById('footer-telegram').href = d.telegram; }
+  if (d.dex) { document.getElementById('link-dex').href = d.dex; document.getElementById('link-dex').textContent = 'Dexscreener'; document.getElementById('footer-dex').href = d.dex; }
+  if (d.foundernote) document.getElementById('founder-note').textContent = d.foundernote;
+
+  // Quick stats bar
+  setText('qs-outlets', d.outlets, '-');
+  setText('qs-buyback', d.bought, '-');
+  setText('qs-burn', d.burn, '-');
+
+  // Big metric cards
+  setText('m-outlets', d.outlets, '-');
+  setText('m-revenue', d.revenue, '-');
+  setText('m-profit', d.profit, '-');
+  setText('m-buyback', d.bought, '-');
+  setText('m-burn', d.burn, '-');
+  setText('last-updated', d.lastUpdated, '-');
+}
+
+function renderHistory() {
+  var history = loadHistory();
+  var container = document.getElementById('history-container');
+  if (!history || history.length === 0) {
+    container.innerHTML = '<div class="empty-history">No history yet. Monthly updates will appear here.</div>';
+    return;
+  }
+  // Sort newest first
+  var sorted = history.slice().sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
+  var html = '<table class="htable"><thead><tr><th>Month</th><th>Revenue</th><th>Profit</th><th>Buyback</th><th>Burn</th><th>Outlets</th></tr></thead><tbody>';
+  sorted.forEach(function(row, i) {
+    var cls = i === 0 ? 'latest-row' : '';
+    html += '<tr class="' + cls + '">';
+    html += '<td><span class="month-badge">' + row.month + '</span>' + (i === 0 ? ' <span style="color:#f5c842;font-size:0.7rem;">LATEST</span>' : '') + '</td>';
+    html += '<td>' + (row.revenue || '-') + '</td>';
+    html += '<td>' + (row.profit || '-') + '</td>';
+    html += '<td>' + (row.bought || '-') + '</td>';
+    html += '<td>' + (row.burn || '-') + '</td>';
+    html += '<td>' + (row.outlets || '-') + '</td>';
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function openPool() { var d = load(); if (d.lp) window.open(d.lp, '_blank'); else alert('LP link belum diset. Buka Admin Dashboard.'); }
+function openDex() { var d = load(); if (d.dex) window.open(d.dex, '_blank'); else alert('Dexscreener link belum diset. Buka Admin Dashboard.'); }
+
 apply(load());
+renderHistory();
 </script>
 </body>
 </html>
